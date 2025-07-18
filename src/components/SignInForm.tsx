@@ -12,7 +12,7 @@ export default function SignInForm() {
         const contrasena = formData.get('contrasena') as string
 
         const res = await signIn('credentials', {
-            numero,
+            numero: "51" + numero, 
             contrasena,
             redirect: true,
             callbackUrl: '/dashboard'

@@ -15,7 +15,7 @@ export default function SignUpForm() {
         const formData = new FormData(e.currentTarget)
         const userData = {
             nombre: formData.get('name') as string,
-            numero: formData.get('numero') as string,
+            numero: "51" + formData.get('numero') as string,
             contrasena: formData.get('contrasena') as string,
         }
 

@@ -25,17 +25,3 @@ export const registerUser = async (userData: {
         throw error
     }
 }
-
-// Funciones de ejemplo para peticiones autenticadas
-export const userService = {
-    // Obtener perfil del usuario
-    getProfile: (token: string) =>
-        makeAuthenticatedRequest('/user/profile', { method: 'GET' }, token),
-
-    // Actualizar perfil
-    updateProfile: (profileData: any, token: string) =>
-        makeAuthenticatedRequest('/user/profile', {
-            method: 'PUT',
-            data: profileData
-        }, token),
-}
