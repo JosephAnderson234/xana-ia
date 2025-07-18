@@ -20,7 +20,6 @@ export const makeAuthenticatedRequest = async (
     if (!token) {
         throw new Error('No hay token de autenticación disponible')
     }
-    console.log('Token de autenticación:', token)
     const config: AxiosRequestConfig = {
         ...options,
         url,

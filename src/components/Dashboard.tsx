@@ -1,6 +1,8 @@
 import { makeAuthenticatedRequest } from '../hooks/useAuthenticatedRequest'
 
 import { UserProfile } from '@src/types/user';
+import Link from 'next/link';
+import { SignOutButton } from './Buttons';
 
 const loadData = async () : Promise<UserProfile | null> => {
     try {
@@ -23,7 +25,17 @@ export default async function Dashboard() {
                 <h1 className="text-2xl font-bold mb-4">Dashboard - Xana AI</h1>
 
 
-
+                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg mb-6">
+                    <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-2xl font-bold text-primary">Bienvenido/a</h2>
+                        <Link 
+                            href="/dashboard/bot" 
+                            className="px-4 py-2 bg-primary hover:bg-primary/80 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        >
+                            Ir al Bot
+                        </Link>
+                    </div>
+                </div>
                     <div className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">Perfil</h2>
                         <div className="bg-gray-50 p-4 rounded">
@@ -32,7 +44,12 @@ export default async function Dashboard() {
                         </div>
                     </div>
 
-
+                <div>
+                    <h2 className="text-xl font-semibold mb-2">Opciones</h2>
+                    <div className="space-y-4">
+                        <SignOutButton />
+                    </div>
+                </div>
             </div>
         </div>
     )

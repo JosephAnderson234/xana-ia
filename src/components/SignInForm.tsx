@@ -1,28 +1,23 @@
 "use client";
 import Link from "next/link"
 import { signIn } from "next-auth/react"
-import { useRouter } from "next/navigation"
+
+import { useSearchParams } from "next/navigation";
 
 export default function SignInForm() {
-    const router = useRouter()
+    const searchParams = useSearchParams();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const numero = formData.get('numero') as string
         const contrasena = formData.get('contrasena') as string
-
-        const res = await signIn('credentials', {
+        const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
+        await signIn('credentials', {
             numero: "51" + numero, 
             contrasena,
             redirect: true,
-            callbackUrl: '/dashboard'
+            callbackUrl
         })
-
-        if (res?.ok) {
-            router.push('/dashboard')
-        } else {
-            console.error('Error al iniciar sesión')
-        }
     }
 
     return (

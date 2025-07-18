@@ -2,12 +2,7 @@
 import Link from "next/link";
 export default function Home() {
 
-	const handleOpenWhatsappChat = () =>{
-		const phoneNumber = "51923441744"; // Reemplaza con el número de teléfono deseado
-		const message = "¡Hola! Xana IA.";
-		const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-		window.open(whatsappUrl, "_blank");
-	}
+
 
 	return (
 		<div className="min-h-screen bg-[#ece9e2] text-[#1d2a3d]">
@@ -31,9 +26,9 @@ export default function Home() {
 					Xana IA está aquí para acompañarte en tu camino hacia el bienestar emocional. 
 					Una compañera virtual que te escucha y apoya 24/7.
 				</p>
-				<button className="px-8 py-3 bg-[#2e7b85] text-white rounded-lg text-lg hover:opacity-90" onClick={handleOpenWhatsappChat}>
+				<Link href="/dashboard/bot" className="px-8 py-3 bg-[#2e7b85] text-white rounded-lg text-lg hover:opacity-90">
 					Comienza tu viaje
-				</button>
+				</Link>
 			</main>
 		</div>
 	);
